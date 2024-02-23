@@ -7,8 +7,6 @@ terraform {
   }
 }
 
-provider "alicloud" {}
-
 resource "alicloud_vpc" "main" {
   # VPC name
   name       = "alicloud"
