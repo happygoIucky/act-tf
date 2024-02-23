@@ -34,13 +34,13 @@ jobs:
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
       env:
-        ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY_ID }}
-        SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY }}
+        access-key-id: ${{ secrets.ACCESS_KEY_ID }}
+        access-key-secret: ${{ secrets.ACCESS_KEY_SECRET }}
       run: terraform init -input=false
 
     # Generates an execution plan for Terraform
     - name: Terraform Plan
       env:
-        ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY_ID }}
-        SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY }}
+        access-key-id: ${{ secrets.ACCESS_KEY_ID }}
+        access-key-secret: ${{ secrets.ACCESS_KEY_SECRET }}
       run: terraform plan -input=false
