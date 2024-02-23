@@ -8,7 +8,7 @@ terraform {
 }
 
 provider "alicloud" {
-  	region  = "var.region"
+  	region  = var.region
 #    shared_credentials_file = "/Users/Jawn Lim/.aliyun/config.json"
 #    profile                 = "aliprof"
 #    configuration_source = "terraform-provider-alicloud/examples/vpc"
@@ -17,7 +17,7 @@ provider "alicloud" {
 
 variable "region" {
   type = string
-  default ="ap-southeast-1"
+  default = "ap-southeast-1"
 }
 
 resource "alicloud_vpc" "vpc" {
