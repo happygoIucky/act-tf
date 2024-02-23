@@ -9,15 +9,27 @@ terraform {
 
 provider "alicloud" {
   	region  = var.region
-    //access_key = var.access_key
-    //secret_key = var.secret_key
-    shared_credentials_file = "/Users/Jawn Lim/.aliyun/config.json"
+    access_key = var.access_key
+    secret_key = var.secret_key
+    //shared_credentials_file = "/Users/Jawn Lim/.aliyun/config.json"
     #profile                 = "aliprof"
 }
 
 variable "region" {
   type = string
   default = "ap-southeast-1"
+
+}
+
+  variable "access_key" {
+  type      = string
+  sensitive = true
+}
+
+variable "secret_key" {
+  type      = string
+  sensitive = true
+
 }
 
 resource "alicloud_vpc" "vpc" {
