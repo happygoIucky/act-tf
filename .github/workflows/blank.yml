@@ -5,13 +5,15 @@ on:
     branches:
       - "main"
 
+env:
+  TF_CLOUD_ORGANIZATION: "github-action-tf"
+  TF_API_TOKEN: "${{ secrets.TF_API_TOKEN }}"
+  TF_WORKSPACE: "git-cicd-tf"
+  CONFIG_DIRECTORY: "./"
+
 jobs:
   lint:
     name: Lint
-    env:
-      REGION_ID: "ap-southeast-1"
-      access-key-id: "${{ secrets.ACCESS_KEY_ID }}"
-      access-key-secret: "${{ secrets.ACCESS_KEY_SECRET }}"
     runs-on: ubuntu-20.04
     steps:
       - name: Check out code
@@ -29,6 +31,3 @@ jobs:
       - name: Plan Terraform
         id: plan
         run: terraform plan -input=false 
-        env:
-          access-key-id: "${{ secrets.ACCESS_KEY_ID }}"
-          access-key-secret: "${{ secrets.ACCESS_KEY_SECRET }}"
