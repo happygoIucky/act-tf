@@ -17,7 +17,7 @@ provider "alicloud" {
 
 variable "region" {
   type = string
-  default ="cn-hongkong"
+  default ="ap-southeast-1"
 }
 
 resource "alicloud_vpc" "vpc" {
