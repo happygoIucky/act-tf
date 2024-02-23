@@ -8,26 +8,20 @@ terraform {
 }
 
 provider "alicloud" {
-  	region  = var.region
+  	region  = "ap-southeast-1"
     shared_credentials_file = "/Users/Jawn Lim/.aliyun/config.json"
-    profile                 = "aliprof"
+    profile                 = "aliprofz"
 
 }
 
-resource "alicloud_vpc" "main" {
-  # VPC name
-  name       = "alicloud"
-  # CIDR block of the VPC
-  cidr_block = "10.1.0.0/21"
+variable "name" {
+  default = "terraform-example-jl"
 }
 
-resource "alicloud_vswitch" "main" {
-  # VPC ID
-  vpc_id            = alicloud_vpc.main.id
-  # CIDR block of the VSwitch
-  cidr_block        = "10.1.0.0/24"
-  # Zone
-  availability_zone = "ap-southeast-1a"
-  # Dependent resource (this dependent resource will be created first)
-  depends_on = [alicloud_vpc.main]
+resource "alicloud_vpc" "default" {
+  ipv6_isp    = "BGPz"
+  description = "test"
+  cidr_block  = "10.0.0.0/8"
+  vpc_name    = var.name
+  enable_ipv6 = true
 }
