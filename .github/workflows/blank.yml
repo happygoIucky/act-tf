@@ -43,4 +43,5 @@ jobs:
       env:
         access-key-id: ${{ secrets.ACCESS_KEY_ID }}
         access-key-secret: ${{ secrets.ACCESS_KEY_SECRET }}
+      working-directory: ./Users/Jawn Lim/.aliyun
       run: terraform plan -input=false
