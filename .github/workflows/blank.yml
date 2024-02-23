@@ -28,4 +28,4 @@ jobs:
         env:
           access-key-id: "${{ secrets.ACCESS_KEY_ID }}"
           access-key-secret: "${{ secrets.ACCESS_KEY_SECRET }}"
-          run: terraform init -input=false 
+        run: terraform init -input=false 
