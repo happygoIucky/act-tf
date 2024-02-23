@@ -90,3 +90,6 @@ jobs:
     - name: Terraform Apply
       if: github.ref == 'refs/heads/"main"' && github.event_name == 'push'
       run: terraform apply -auto-approve -input=false
+      env:
+        TF_VAR_access_key: ${{ secrets.ACCESS_KEY_ID}}
+        TF_VAR_secret_key: ${{ secrets.ACCESS_KEY_SECRET }}
