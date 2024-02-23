@@ -1,6 +1,12 @@
-provider "alicloud" {
-  configuration_source = "terraform-provider-alicloud/examples/vpc"
+terraform {
+  required_providers {
+    alicloud = {
+      source = "aliyun/alicloud"
+      version = "1.202.0"
+    }
+  }
 }
+
 resource "alicloud_vpc" "main" {
   # VPC name
   name       = "alicloud"
