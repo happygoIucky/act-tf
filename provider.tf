@@ -7,9 +7,7 @@ terraform {
   }
 }
 
-provider "alicloud" {
-  	region  = "ap-southeast-1"
-}
+provider "alicloud" {}
 
 resource "alicloud_vpc" "main" {
   # VPC name
