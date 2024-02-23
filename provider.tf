@@ -8,12 +8,16 @@ terraform {
 }
 
 provider "alicloud" {
-  features {}
-#  	region  = "ap-southeast-1"
+  	region  = "var.region"
 #    shared_credentials_file = "/Users/Jawn Lim/.aliyun/config.json"
 #    profile                 = "aliprof"
 #    configuration_source = "terraform-provider-alicloud/examples/vpc"
 
+}
+
+variable "region" {
+  type = string
+  default ="cn-hongkong"
 }
 
 resource "alicloud_vpc" "vpc" {
