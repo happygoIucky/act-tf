@@ -1,3 +1,6 @@
+provider "alicloud" {
+  configuration_source = "terraform-provider-alicloud/examples/vpc"
+}
 resource "alicloud_vpc" "main" {
   # VPC name
   name       = "alicloud"
