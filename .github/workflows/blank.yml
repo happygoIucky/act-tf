@@ -4,6 +4,11 @@ on:
   push:
     branches:
       - "main"
+      
+env:
+  REGION_ID: ap-southeast-1
+  access-key-id: "${{ secrets.ACCESS_KEY_ID }}"
+  access-key-secret: "${{ secrets.ACCESS_KEY_SECRET }}"
 
 jobs:
   lint:
@@ -17,13 +22,6 @@ jobs:
         uses: hashicorp/setup-terraform@v1
         with:
           terraform_version: 1.0.9
-
-      - name: Configure ALI Credentials
-        uses: aliyun/ali-login@v1
-        with:
-          region-id: ap-southeast-1
-          access-key-id: "${{ secrets.ACCESS_KEY_ID }}"
-          access-key-secret: "${{ secrets.ACCESS_KEY_SECRET }}"
       
       - name: Initialize Terraform
         run: |
