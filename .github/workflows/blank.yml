@@ -5,10 +5,10 @@ on:
     branches:
       - "main"
       
-env:
-  REGION_ID: "ap-southeast-1"
-  access-key-id: "${{ secrets.ACCESS_KEY_ID }}"
-  access-key-secret: "${{ secrets.ACCESS_KEY_SECRET }}"
+#env:
+  #REGION_ID: "ap-southeast-1"
+  #access-key-id: "${{ secrets.ACCESS_KEY_ID }}"
+  #access-key-secret: "${{ secrets.ACCESS_KEY_SECRET }}"
 
 jobs:
   lint:
@@ -26,6 +26,8 @@ jobs:
       - name: Initialize Terraform
         run: |
           terraform init -input=false 
+          access-key-id: "${{ secrets.ACCESS_KEY_ID }}"
+          access-key-secret: "${{ secrets.ACCESS_KEY_SECRET }}"
 
       - name: Plan Terraform
         run: |
