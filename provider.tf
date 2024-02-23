@@ -7,13 +7,13 @@ terraform {
   }
 }
 
-#provider "alicloud" {
+provider "alicloud" {
 #  	region  = "ap-southeast-1"
 #    shared_credentials_file = "/Users/Jawn Lim/.aliyun/config.json"
 #    profile                 = "aliprof"
 #    configuration_source = "terraform-provider-alicloud/examples/vpc"
 
-#}
+}
 
 resource "alicloud_vpc" "vpc" {
   vpc_name   = "tf_test_jl"
