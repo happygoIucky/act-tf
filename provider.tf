@@ -1,5 +1,5 @@
 provider "alicloud" {
-  	region  = ap-southeast-1
+  	region  = "ap-southeast-1"
 }
 
 resource "alicloud_vpc" "main" {
