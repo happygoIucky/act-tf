@@ -18,8 +18,15 @@ jobs:
         with:
           terraform_version: 1.0.9
 
-      - name: Run terraform fmt check
-        run: terraform fmt -check -diff -recursive ./terraform
-
-
+      - name: Configure ALI Credentials
+        uses: aliyun/ali-login@v1
+        with:
+          region-id: ap-southeast-1
+          access-key-id: "${{ secrets.ACCESS_KEY_ID }}"
+          access-key-secret: "${{ secrets.ACCESS_KEY_SECRET }}"
+      
+      - name: Initialize Terraform
+        run: |
+          cd terraform/${{ matrix.path }}
+          terraform init -input=false 
           
