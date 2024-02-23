@@ -1,4 +1,4 @@
-name: simple-nodejs-app
+name: terraform
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - "main"
       
 env:
-  REGION_ID: ap-southeast-1
+  REGION_ID: "ap-southeast-1"
   access-key-id: "${{ secrets.ACCESS_KEY_ID }}"
   access-key-secret: "${{ secrets.ACCESS_KEY_SECRET }}"
 
