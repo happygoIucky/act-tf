@@ -15,6 +15,15 @@ provider "alicloud" {
     #profile                 = "aliprof"
 }
 
+terraform {
+  backend "oss" {
+    bucket = "lj-bucket89"
+    key    = "terraform.tfstate"
+    region = "ap-southeast-1"
+  }
+}
+
+
 variable "region" {
   type = string
   default = "ap-southeast-1"
