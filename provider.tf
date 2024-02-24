@@ -15,14 +15,6 @@ provider "alicloud" {
     #profile                 = "aliprof"
 }
 
-terraform {
-  backend "oss" {
-    bucket = "lj-bucket89"
-    key    = "terraform.tfstate"
-    region = "ap-southeast-1"
-  }
-}
-
 
 variable "region" {
   type = string
@@ -42,6 +34,6 @@ variable "secret_key" {
 }
 
 resource "alicloud_vpc" "vpc" {
-  vpc_name   = "tf_test_jlz"
+  vpc_name   = "tf_test_jla"
   cidr_block = "172.16.0.0/12"
 }
