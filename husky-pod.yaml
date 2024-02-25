@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: husky-pod
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: huskyapp
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: huskyapp
+    spec:
+      containers:
+        - name: huskyapp
+          image: jawnlim89/simple-nodejs-to-docker:latest
+          readinessProbe:
+            tcpSocket:
+              port: 3002
+            initialDelaySeconds: 62
+            periodSeconds: 10
+            failureThreshold: 3
+          resources:
+            requests:
+              cpu: "100m"
+          imagePullPolicy: Always
+          ports:
+          - containerPort: 3002
+
