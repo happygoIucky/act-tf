@@ -31,12 +31,16 @@ jobs:
 
 
 
-    - name: get k8s pods
+    - name: auth to ACK
       uses: aliyun/ack-set-context@v1
       with:
         access-key-id: ${{ secrets.ACCESS_KEY_ID}}
         access-key-secret: ${{ secrets.ACCESS_KEY_SECRET }}
         cluster-id: "${{ env.ACK_CLUSTER_ID }}"
+    
+    - name: get pod
+      run: |-
+        kubectl get pods
 
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
     - name: Setup Terraform
