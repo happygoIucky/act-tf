@@ -6,7 +6,7 @@ on:
   pull_request:
 
 env:
-  ACK_CLUSTER_ID: SG-Cluster-1
+  ACK_CLUSTER_ID: c75b865d84bc0414494282aa5ebf384c9
   ALIYUN_REGION: ap-southeast-1
 
 permissions:
@@ -23,28 +23,20 @@ jobs:
       run:
         shell: bash
 
+
     steps:
     # Checkout the repository to the GitHub Actions runner
     - name: Checkout
       uses: actions/checkout@v3
 
-    steps:
-      - uses: actions/checkout@v1
-      - uses: jerray/setup-aliyun-cli-action@v1.0.0
-        with:
-          aliyun-cli-version: '3.0.165'
-          mode: AK
-          access-key-id: ${{ secrets.ACCESS_KEY_ID }}
-          access-key-secret: ${{ secrets.ACCESS_KEY_SECRET }}
-          region: ${{ secrets.ALIYUN_REGION }}
-      - run: aliyun oss cp ./dir oss://backet/path -r -u
 
-    #- name: get k8s pods
-    #  uses: aliyun/ack-set-context@v1
-    #  with:
-    #    access-key-id: ${{ secrets.ACCESS_KEY_ID}}
-    #    access-key-secret: ${{ secrets.ACCESS_KEY_SECRET }}
-    #    cluster-id: "${{ env.ACK_CLUSTER_ID }}"
+
+    - name: get k8s pods
+      uses: aliyun/ack-set-context@v1
+      with:
+        access-key-id: ${{ secrets.ACCESS_KEY_ID}}
+        access-key-secret: ${{ secrets.ACCESS_KEY_SECRET }}
+        cluster-id: "${{ env.ACK_CLUSTER_ID }}"
 
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
     - name: Setup Terraform
