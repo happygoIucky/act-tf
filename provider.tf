@@ -34,6 +34,6 @@ variable "secret_key" {
 }
 
 resource "alicloud_vpc" "vpc" {
-  vpc_name   = "tf_test_jlb"
+  vpc_name   = "tf_test_jlc"
   cidr_block = "172.16.0.0/12"
 }
